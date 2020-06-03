@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {
+  Container
+} from 'reactstrap'
 
-function App() {
+import AppRoutes from "./Routes"
+import Header from './components/header/Header'
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container fluid style={{"margin":"0","padding":"0"}}>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          {AppRoutes.map(route=>(
+            <Route
+              id={route.id}
+              path={route.path}
+              exact={route.exact}
+              component={route.component}
+            />
+          )
+          )}
+        </Switch>
+      </BrowserRouter> 
+    </Container>
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,11 @@
+.header-list{
+    justify-content: flex-end;
+}
+.header{
+    justify-content: unset;
+    justify-content: space-evenly;
+    padding: 1rem 1.2rem;
+}
+.header-item{
+    margin: 0px 7px;
+}
