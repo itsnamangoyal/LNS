@@ -1,30 +1,38 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import {
-  Container
-} from 'reactstrap'
-
 import AppRoutes from "./Routes"
-import Header from './components/header/Header'
-const App = () => {
+import './App.css'
+import Header from './components/common/Header/Header'
+import SideDrawer from './components/common/SideDrawer/SideDrawer'
+
+const App = (props) => {
+  const [isMenuOpen, setMenuState] = useState(false)
+  const menuToggler = () => setMenuState(!isMenuOpen)
 
   return (
-    <Container fluid style={{"margin":"0","padding":"0"}}>
-      <BrowserRouter>
-        <Header />
-        <Switch>
-          {AppRoutes.map(route=>(
-            <Route
-              id={route.id}
-              path={route.path}
-              exact={route.exact}
-              component={route.component}
-            />
-          )
-          )}
-        </Switch>
-      </BrowserRouter> 
-    </Container>
+    <div className="whole-page">
+      {isMenuOpen ?
+        <SideDrawer menuButtonClickHandler={menuToggler} />
+        :
+        <div className="main-page">
+          <Header menuButtonClickHandler={menuToggler} />
+          <hr className="headerSplit" />
+          <BrowserRouter>
+            <Switch>
+              {AppRoutes.map(route => (
+                <Route
+                  key={route.id}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.component}
+                />
+              )
+              )}
+            </Switch>
+          </BrowserRouter>
+        </div>
+      }
+    </div>
   )
 }
 

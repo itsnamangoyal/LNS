@@ -1,0 +1,154 @@
+.contact-page{
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+}
+
+.office-box .office-heading{
+    color: var(--color1);
+}
+
+#submit-button{
+    display: flex;
+    margin: 20px 0;
+    justify-content: center;
+}
+.office-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width:768.1px){
+    .inner-contact-page{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .contact-form{
+        padding: 30px;
+        border-right: solid 1px var(--color1);
+        text-align: left;
+        width: 45%;
+        max-width: 550px;
+    }
+    
+    .reach-us{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        padding: 0px 30px;
+    }
+    
+    #maharashtra{
+        padding-bottom: 20px;
+        border-bottom: solid 1px var(--color1);
+    }
+    .map{
+        min-width: 200px;
+        width: 100%;
+        border:none;
+        min-height: 200px;
+    }
+    #delhi{
+        margin-top: 20px;
+    }
+}
+
+@media (min-width:480.1px) and (max-width:768px){
+    .inner-contact-page{
+        display: flex;
+        flex-direction: column;    
+    }
+    .contact-form{
+        padding: 30px;
+        border-bottom: solid 1px var(--color1);
+        text-align: left;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .reach-us{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .office-box{
+        justify-content: space-between;
+        padding: 10px;
+        width: 50%
+    }
+    #maharashtra{
+        border-right: solid 1px var(--color1);
+    }
+    .map{
+        width: 100%;
+        border:none;
+        min-height: 200px;
+    }
+}
+
+@media (min-width:320.1px) and (max-width:480px){
+    .inner-contact-page{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-form{
+        text-align: left;
+        width: 95% ;
+        margin:auto;
+        padding : 10px 0;
+        border: none;
+    }
+   .reach-us{
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       margin: 0 auto;
+   }
+   .office-box{
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       margin: 0px auto;
+       border-top: solid 1px var(--color1);
+       padding: 20px 0;
+   }
+   .map{
+    min-width: 200px;
+    width: 100%;
+    border:none;
+    min-height: 200px;
+}
+}
+
+@media (max-width:320px){
+    .inner-contact-page{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-form{
+        text-align: left;
+        width: 100% ;
+        margin: 10px auto;
+        padding-bottom: 10px;
+    }
+   .reach-us{
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       margin: 0px auto;
+   }
+   .office-box{
+       margin: 10px auto;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       width: 100%;
+       padding: 10px;
+       border-top: solid 1px var(--color1);
+   }
+}

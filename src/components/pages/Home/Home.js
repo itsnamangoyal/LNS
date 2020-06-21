@@ -1,10 +1,10 @@
 import React from 'react'
+import './Home.css'
 
-const Home = ()=>{
-
+const Home = () => {
     return(
         <div>
-            This is Home Page.
+            This is home page
         </div>
     )
 }
