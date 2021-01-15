@@ -1,0 +1,34 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw; //fallback
+	width: calc(var(--vw, 1vw) * 100);
+	background-color: $color1;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	font-size: 1.4rem;
+	padding: 0 4rem;
+	.brand-name {
+		font-weight: 700;
+		font-family: "Segoe UI", "Josefin Sans";
+		scale: 1.3;
+		letter-spacing: 0.4rem;
+	}
+	// .nav-links {
+	// 	display: flex;
+	// 	list-style: none;
+	// 	gap: 1.6rem;
+	// 	.link {
+	// 		text-transform: lowercase;
+	// 		font-weight: 400;
+	// 		cursor: pointer;
+	// 		a {
+	// 			text-decoration: none;
+	// 		}
+	// 	}
+	// }
+}

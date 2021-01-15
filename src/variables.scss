@@ -1,0 +1,39 @@
+//colors
+$color1: #f0dc7f;
+$color1-faded: rgba(
+	$color: $color1,
+	$alpha: 0.7,
+);
+$color2: #f0807a;
+$color2-faded: rgba(
+	$color: $color2,
+	$alpha: 0.7,
+);
+$color3: #3c3cf0;
+$color3-faded: rgba(
+	$color: $color3,
+	$alpha: 0.8,
+);
+$white: #fff;
+$black: #000;
+
+// hero colors
+$background-color: $color1-faded;
+
+$x-margin: 5vw;
+
+$breakpoints: (
+	"phone": 599px,
+	"tablet": 768px,
+	"desktop": 1024px,
+) !default;
+
+@mixin screen($breakpoint) {
+	@if map-has-key($map: $breakpoints, $key: $breakpoint) {
+		@media (max-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+			@content;
+		}
+	} @else {
+		@warn "Unfortunately, `#{$breakpoint}` can not be found.";
+	}
+}

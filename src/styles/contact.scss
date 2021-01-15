@@ -1,0 +1,75 @@
+.contact {
+	margin: 10vh $x-margin;
+	text-align: center;
+	h1 {
+		text-align: center;
+		line-height: 140%;
+	}
+	.sub-heading {
+		font-size: 1.2rem;
+		text-align: center;
+		margin-top: 1rem;
+	}
+	.inner-contact-page {
+		margin-top: 2rem;
+		.reach-us {
+			display: flex;
+			justify-content: space-evenly;
+			@include screen("tablet") {
+				flex-direction: column;
+				justify-content: center;
+			}
+			.office-box {
+				border-radius: 20px;
+				border: 1px solid black;
+				padding: 20px 0px 0 0;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.8rem;
+				width: 45%;
+				@include screen("tablet") {
+					width: 90%;
+					margin: 20px auto;
+					gap: 1.3rem;
+				}
+				// @include screen("desktop") {
+				// 	margin-top: 7vh;
+				// }
+				// @include screen("tablet") {
+				// 	margin-top: 7vh;
+				// 	flex-direction: column;
+				// }
+				// @include screen("phone") {
+				// 	margin-top: 7vh;
+				// }
+				.mid {
+					display: flex;
+					flex-direction: column;
+					flex: 1;
+					gap: 0.4vw;
+					font-size: 1.1rem;
+					max-width: 95%;
+					@include screen("tablet") {
+						gap: 0.6rem;
+					}
+					p {
+						line-height: 140%;
+					}
+				}
+				.map {
+					height: 20vw;
+					min-height: 300px;
+					width: 100%;
+					@include screen("tablet") {
+						height: 34vw;
+					}
+					@include screen("phone") {
+						height: 40vw;
+					}
+				}
+			}
+		}
+	}
+}

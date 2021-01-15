@@ -1,39 +1,47 @@
-import React, {useState} from 'react'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import AppRoutes from "./Routes"
-import './App.css'
-import Header from './components/common/Header/Header'
-import SideDrawer from './components/common/SideDrawer/SideDrawer'
+import React, { useEffect, useState } from "react"
 
-const App = (props) => {
-  const [isMenuOpen, setMenuState] = useState(false)
-  const menuToggler = () => setMenuState(!isMenuOpen)
+import "./app.scss"
+import { About, Contact, Header, Hero } from "./components"
 
-  return (
-    <div className="whole-page">
-      {isMenuOpen ?
-        <SideDrawer menuButtonClickHandler={menuToggler} />
-        :
-        <div className="main-page">
-          <Header menuButtonClickHandler={menuToggler} />
-          <hr className="headerSplit" />
-          <BrowserRouter>
-            <Switch>
-              {AppRoutes.map(route => (
-                <Route
-                  key={route.id}
-                  path={route.path}
-                  exact={route.exact}
-                  component={route.component}
-                />
-              )
-              )}
-            </Switch>
-          </BrowserRouter>
-        </div>
-      }
-    </div>
-  )
+function App() {
+	//variable to store if page is on hero
+	const [onHero, setOnHero] = useState(true)
+	const [noScroll, setNoScroll] = useState(true)
+	//when window resizes update css variale '--vh' and '--vw'
+	useEffect(() => {
+		window.addEventListener("resize", () => {
+			const vh = window.innerHeight * 0.01
+			const vw = window.innerWidth * 0.01
+			document.documentElement.style.setProperty("--vh", `${vh}px`)
+			document.documentElement.style.setProperty("--vw", `${vw}px`)
+		})
+
+		//cleanup
+		return function () {
+			window.removeEventListener("resize", null)
+		}
+	}, [])
+
+	//if initially page is scrolled to top then disable scroll
+	useEffect(() => {
+		const isPageOnTop = window.scrollY === 0
+		document.body.classList.toggle("no-scroll", isPageOnTop)
+		setNoScroll(isPageOnTop)
+	}, [])
+
+	return (
+		<>
+			{!onHero && <Header />}
+			<Hero
+				noScroll={noScroll}
+				setNoScroll={setNoScroll}
+				onHero={onHero}
+				setOnHero={setOnHero}
+			/>
+			<About />
+			<Contact />
+		</>
+	)
 }
 
 export default App

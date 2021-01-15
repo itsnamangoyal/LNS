@@ -1,0 +1,68 @@
+.page-hero {
+	padding: 25vh 0;
+	height: calc(var(--vh, 1vh) * 100);
+	background-color: $background-color;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
+
+	.brand-name {
+		color: $black;
+		opacity: 0.8;
+		font-weight: 700;
+		text-transform: lowercase;
+		font-size: 6rem;
+		letter-spacing: 0.05rem;
+		font-family: "Segoe UI", "Josefin Sans";
+		@include screen("desktop") {
+			font-size: 4rem;
+		}
+		@include screen("tablet") {
+			font-size: 3.4rem;
+		}
+		@include screen("phone") {
+			font-size: 1.6rem;
+		}
+	}
+	.punchline {
+		font-weight: 400;
+		letter-spacing: 0.1rem;
+		word-spacing: 0.05rem;
+		max-width: 40%;
+		font-size: 1.3rem;
+		text-align: center;
+
+		@include screen("desktop") {
+			font-size: 1.2rem;
+			min-width: 500px;
+		}
+		@include screen("tablet") {
+			font-size: 1rem;
+		}
+		@include screen("phone") {
+			font-size: 1rem;
+			min-width: unset;
+			max-width: 90%;
+		}
+	}
+	.spacer {
+		flex: 1;
+	}
+	.next {
+		border: 1px solid $black;
+		border-radius: 50%;
+		padding: 0.3rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&:hover {
+			border-width: 2px;
+			svg {
+				path {
+					fill: black;
+				}
+			}
+		}
+	}
+}
